@@ -1,0 +1,57 @@
+{
+  "name": "vinext-boilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vinext dev -H 0.0.0.0",
+    "build": "vinext build",
+    "start": "vinext start",
+    "deploy": "vinext deploy",
+    "deploy:dry-run": "vinext deploy --dry-run",
+    "vinext:check": "vinext check",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "lint": "pnpm format:check && pnpm lint:code",
+    "lint:code": "oxlint --quiet .",
+    "lint:code:fix": "oxlint --quiet --fix .",
+    "lint:fix": "pnpm format:write && pnpm lint:code:fix",
+    "format:check": "oxfmt --check .",
+    "format:write": "oxfmt .",
+    "typecheck": "tsc --noEmit",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate",
+    "dev:vinext": "vite dev --port 3001",
+    "build:vinext": "vite build"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "7.5.0",
+    "@prisma/client": "7.5.0",
+    "@t3-oss/env-nextjs": "^0.13.10",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "dotenv": "^17.3.1",
+    "next": "^16.2.0",
+    "pg": "^8.20.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.29.1",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
+    "prisma": "^7.5.0",
+    "typescript": "^5.9.3",
+    "vinext": "0.0.31",
+    "vite": "^8.0.0",
+    "wrangler": "^4.75.0"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=24"
+  }
+}

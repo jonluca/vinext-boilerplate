@@ -1,0 +1,27 @@
+{
+  "plugins": ["react", "typescript", "oxc"],
+  "rules": {
+    "no-constant-binary-expression": "deny",
+    "no-constant-condition": "deny",
+    "no-unused-expressions": "deny",
+    "no-unused-vars": "deny",
+    "prefer-const": "deny",
+    "react/exhaustive-deps": "deny",
+    "react/rules-of-hooks": "deny",
+    "typescript/ban-ts-comment": "deny",
+    "typescript/consistent-type-imports": "deny",
+    "typescript/no-explicit-any": "deny",
+    "typescript/no-import-type-side-effects": "deny"
+  },
+  "ignorePatterns": [
+    ".idea/**/*",
+    ".next/**/*",
+    ".wrangler/**/*",
+    "node_modules/**/*",
+    "generated/**/*",
+    "dist/**/*",
+    "worker/**/*",
+    "next-env.d.ts",
+    "cloudflare-env.d.ts"
+  ]
+}
