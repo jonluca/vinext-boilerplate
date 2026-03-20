@@ -18,8 +18,12 @@ import {
 // @ts-expect-error -- virtual module resolved by vinext at build time
 import { renderPage, handleApiRoute, runMiddleware, vinextConfig } from "virtual:vinext-server-entry";
 
+interface AssetFetcher {
+  fetch(request: Request): Promise<Response>;
+}
+
 interface Env {
-  ASSETS: Fetcher;
+  ASSETS: AssetFetcher;
   IMAGES: {
     input(stream: ReadableStream): {
       transform(options: Record<string, unknown>): {
@@ -54,6 +58,11 @@ function hasBasePath(pathname: string, basePath: string): boolean {
 function stripBasePath(pathname: string, basePath: string): string {
   if (!hasBasePath(pathname, basePath)) return pathname;
   return pathname.slice(basePath.length) || "/";
+}
+
+function stripQueryString(url: string): string {
+  const queryIndex = url.indexOf("?");
+  return queryIndex === -1 ? url : url.slice(0, queryIndex);
 }
 
 export default {
@@ -207,7 +216,7 @@ export default {
 
       // Config header matching must keep using the original normalized pathname
       // even if middleware rewrites the downstream route/render target.
-      let resolvedPathname = resolvedUrl.split("?")[0];
+      let resolvedPathname = stripQueryString(resolvedUrl);
 
       // ── 5. Apply custom headers from next.config.js ───────────────
       // Config headers are additive for multi-value headers (Vary,
@@ -247,7 +256,7 @@ export default {
             return proxyExternalRequest(request, rewritten);
           }
           resolvedUrl = rewritten;
-          resolvedPathname = rewritten.split("?")[0];
+          resolvedPathname = stripQueryString(rewritten);
         }
       }
 
@@ -267,7 +276,7 @@ export default {
             return proxyExternalRequest(request, rewritten);
           }
           resolvedUrl = rewritten;
-          resolvedPathname = rewritten.split("?")[0];
+          resolvedPathname = stripQueryString(rewritten);
         }
       }
 
