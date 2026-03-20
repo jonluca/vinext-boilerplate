@@ -45,7 +45,7 @@ pnpm dev
 ## Common scripts
 
 - `pnpm dev`: start the vinext development server
-- `pnpm build`: create the production bundle with vinext
+- `pnpm build`: create the Cloudflare-targeted production bundle with Vite
 - `pnpm start`: run the built app locally
 - `pnpm deploy`: build and deploy to Cloudflare Workers
 - `pnpm deploy:dry-run`: build the deploy artifact without publishing it
