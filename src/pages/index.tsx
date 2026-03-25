@@ -13,11 +13,11 @@ export default function HomePage() {
     <>
       <Head>
         <title>Vinext Boilerplate</title>
-        <meta content={"Minimal Next.js, Prisma, Oxc, Vinext, and Wrangler starter."} name={"description"} />
+        <meta content={"Minimal Next.js, Drizzle, Oxc, Vinext, and Wrangler starter."} name={"description"} />
       </Head>
       <main className={"page-shell"}>
         <section className={"hero-card"}>
-          <p className={"eyebrow"}>Next.js + Prisma + Cloudflare</p>
+          <p className={"eyebrow"}>Next.js + Drizzle + Cloudflare</p>
           <h1>Vinext Boilerplate</h1>
           <p className={"lead"}>
             Minimal Pages Router starter built for local web development first and Cloudflare Workers deployment second.
@@ -25,7 +25,7 @@ export default function HomePage() {
           <div className={"chip-row"}>
             <span className={"chip"}>Next 16</span>
             <span className={"chip"}>React 19</span>
-            <span className={"chip"}>Prisma 7</span>
+            <span className={"chip"}>Drizzle</span>
             <span className={"chip"}>vinext</span>
             <span className={"chip"}>wrangler</span>
             <span className={"chip"}>oxfmt + oxlint</span>

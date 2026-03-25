@@ -4,7 +4,7 @@ Minimal Next.js web boilerplate with:
 
 - Next.js 16 Pages Router
 - React 19
-- Prisma 7 + PostgreSQL
+- Drizzle + PostgreSQL
 - `@t3-oss/env-nextjs` runtime env parsing
 - `oxfmt` and `oxlint`
 - `vinext` for local dev and Cloudflare-targeted builds
@@ -14,7 +14,7 @@ Minimal Next.js web boilerplate with:
 
 - Node.js 24+
 - `pnpm` 10+
-- PostgreSQL access if you plan to run Prisma queries
+- PostgreSQL access if you plan to run Drizzle queries
 
 ## Setup
 
@@ -30,7 +30,7 @@ Create a local env file:
 cp .env.example .env
 ```
 
-Sync the sample Prisma schema when your database is ready:
+Sync the sample Drizzle schema when your database is ready:
 
 ```bash
 pnpm db:push
@@ -54,14 +54,14 @@ pnpm dev
 - `pnpm lint`: run Oxfmt checks and Oxlint
 - `pnpm format:write`: format supported files with Oxfmt
 - `pnpm typecheck`: run TypeScript checks
-- `pnpm db:push`: push the Prisma schema to your database
-- `pnpm db:studio`: open Prisma Studio
+- `pnpm db:push`: push the Drizzle schema to your database
+- `pnpm db:studio`: open Drizzle Studio
 
 ## Project layout
 
 - `src/env.ts`: runtime env validation and defaults
-- `src/server/db.ts`: Prisma singleton using the Postgres adapter
-- `prisma/schema.prisma`: sample `Post` model and Prisma client generator
+- `src/server/db.ts`: Drizzle client using postgres-js
+- `src/server/schema.ts`: sample `Post` table schema
 - `wrangler.jsonc`: Cloudflare Workers runtime configuration
 
 ## Cloudflare

@@ -1,7 +1,5 @@
 onlyBuiltDependencies:
-  - "@prisma/engines"
   - esbuild
-  - prisma
   - sharp
   - workerd
   - wrangler
