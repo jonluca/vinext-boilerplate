@@ -5,6 +5,8 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <title>Vinext Boilerplate</title>
+        <meta content={"Minimal Next.js, Drizzle, Oxc, Vinext, and Wrangler starter."} name={"description"} />
         <style dangerouslySetInnerHTML={{ __html: globalCss }} />
       </Head>
       <body>
